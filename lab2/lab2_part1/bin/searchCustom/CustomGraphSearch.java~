@@ -42,7 +42,7 @@ public class CustomGraphSearch implements SearchObject {
 		
 		// Implement this!
 		System.out.println("Implement CustomGraphSearch.java!");
-		while(!p.isGoalState(frontier.peekAtFront().getState())){
+		
 		
 		/* Some hints:
 		 * -Read early part of chapter 3 in the book!
@@ -68,22 +68,15 @@ public class CustomGraphSearch implements SearchObject {
 		 *  When the goal is found, the path to be returned can be found by: path = node.getPathFromRoot();
 		 */
 		/* Note: Returning an empty path signals that no path exists */
-
-			explored.add(frontier.peekAtFront());
-			ArrayList<GridPos> childStates = p.getReachableStatesFrom(frontier.removeFirst().getState());
-			for(int i = 0; i < childStates.size(); i++){
-				if(insertFront == true)
-					frontier.addNodeToFront(new SearchNode(childStates.get(i)));
-				else
-					frontier.addNodeToBack(new SearchNode(childStates.get(i)));
-			}
-			if(frontier.isEmpty())
-				return path;
-			
-		}
-		
-		path = frontier.peekAtFront().getPathFromRoot();
 		return path;
+	}
+
+	/**
+	 * Suggested helper function for determining if a child node should be put on the frontier  
+	 */
+	private boolean shouldExpandState(SearchNode childNode, SearchNode parentNode) {
+		/* Implement me! */
+		return false;
 	}
 
 	/*
